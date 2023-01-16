@@ -181,8 +181,38 @@ public class TrybeGamesController
 
   public void AddGame()
   {
-    // implementar
-    Console.WriteLine("Ainda não é possível realizar essa funcionalidade!");
+    try
+    {
+
+      Console.WriteLine("Informe o nome do jogo");
+      string gameName = Console.ReadLine();
+
+      if (gameName == "") throw new ArgumentException("Nome inválido");
+
+      Console.WriteLine("Informe a data de lançamento");
+      var releaseDate = DateTime.Parse(Console.ReadLine());
+
+      Console.WriteLine("Informe um valor de 0 a 6 para o tipo de jogo");
+      PrintGameTypes();
+      int type = int.Parse(Console.ReadLine());
+
+      if (type < 0 || type > 6) throw new ArgumentException("Tipo inválido");
+
+      var gameType = (GameType)type;
+      var game = new Game()
+      {
+        Name = gameName,
+        ReleaseDate = releaseDate,
+        GameType = gameType,
+        Id = database.Games.Count + 1
+      };
+
+      database.Games.Add(game);
+    }
+    catch (Exception error)
+    {
+      Console.WriteLine(error.Message);
+    }
   }
 
   public void ChangeGameStudio(Game game)
