@@ -152,8 +152,31 @@ public class TrybeGamesController
 
   public void AddGameStudio()
   {
-    // implementar
-    Console.WriteLine("Ainda não é possível realizar essa funcionalidade!");
+    try
+    {
+      Console.WriteLine("Digite o nome do estúdio de jogos:");
+      var studioName = Console.ReadLine();
+
+      if (string.IsNullOrEmpty(studioName))
+      {
+        Console.WriteLine("Nome inválido!");
+        return;
+      }
+
+      var gameStudio = new GameStudio()
+      {
+        Name = studioName,
+        Id = database.GameStudios.Count + 1
+      };
+
+      database.GameStudios.Add(gameStudio);
+
+    }
+    catch (Exception error)
+    {
+      Console.WriteLine(error.Message);
+    }
+
   }
 
   public void AddGame()
