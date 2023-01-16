@@ -26,8 +26,17 @@ public class TrybeGamesDatabase
 
   public List<Game> GetGamesPlayedBy(Player player)
   {
-    // Implementar
-    throw new NotImplementedException();
+    var games = new List<Game>();
+
+    foreach (var game in Games)
+    {
+      if (game.Players.Contains(player.Id))
+      {
+        games.Add(game);
+      }
+    }
+
+    return games;
   }
 
   public List<Game> GetGamesOwnedBy(Player playerEntry)
