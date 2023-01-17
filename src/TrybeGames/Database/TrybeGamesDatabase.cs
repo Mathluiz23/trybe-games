@@ -2,11 +2,11 @@ namespace TrybeGames;
 
 public class TrybeGamesDatabase
 {
-  public List<Game> Games = new List<Game>();
+  public List<Game> Games = new();
 
-  public List<GameStudio> GameStudios = new List<GameStudio>();
+  public List<GameStudio> GameStudios = new();
 
-  public List<Player> Players = new List<Player>();
+  public List<Player> Players = new();
 
   public List<Game> GetGamesDevelopedBy(GameStudio gameStudio)
   {
@@ -41,7 +41,61 @@ public class TrybeGamesDatabase
 
   public List<Game> GetGamesOwnedBy(Player playerEntry)
   {
-    // Implementar
-    throw new NotImplementedException();
+    var games = new List<Game>();
+
+    foreach (var game in Games)
+    {
+      if (game.Players.Contains(playerEntry.Id))
+      {
+        games.Add(game);
+      }
+    }
+
+    return games;
+  }
+
+  public object GetGamesPlayedBy(int playerId)
+  {
+    var games = new List<Game>();
+
+    foreach (var game in Games)
+    {
+      if (game.Players.Contains(playerId))
+      {
+        games.Add(game);
+      }
+    }
+
+    return games;
+  }
+
+  public object GetGamesOwnedBy(int playerId)
+  {
+    var games = new List<Game>();
+
+    foreach (var game in Games)
+    {
+      if (game.Players.Contains(playerId))
+      {
+        games.Add(game);
+      }
+    }
+
+    return games;
+  }
+
+  public object GetGamesDevelopedBy(int gameStudioId)
+  {
+    var games = new List<Game>();
+
+    foreach (var game in Games)
+    {
+      if (game.DeveloperStudio == gameStudioId)
+      {
+        games.Add(game);
+      }
+    }
+
+    return games;
   }
 }
