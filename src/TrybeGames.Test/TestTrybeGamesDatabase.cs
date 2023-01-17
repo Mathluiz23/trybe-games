@@ -9,80 +9,23 @@ namespace TrybeGames.Test;
 [Collection("Sequential")]
 public class TestTrybeGamesDatabase
 {
-    [Theory(DisplayName = "Deve testar se GetGamesPlayedBy retorna jogos jogados pela pessoa jogadora corretamente.")]
-    [MemberData(nameof(DataTestGetGamesPlayedBy))]
-    public void TestGetGamesPlayedBy(TrybeGamesDatabase databaseEntry, int playerIdEntry, List<Game> expected)
-    {
-        throw new NotImplementedException();
+  [Theory(DisplayName = "Deve testar se GetGamesPlayedBy retorna jogos jogados pela pessoa jogadora corretamente.")]
+  [MemberData(nameof(DataTestGetGamesPlayedBy))]
+  public void TestGetGamesPlayedBy(TrybeGamesDatabase databaseEntry, int playerIdEntry, List<Game> expected)
+  {
 
-        // Arrange
-        
-        // Act
-        
-        // Assert
-    }
+    // Arrange
+    var database = databaseEntry;
+    var playerId = playerIdEntry;
 
-    public static TheoryData<TrybeGamesDatabase, int, List<Game>> DataTestGetGamesPlayedBy => new TheoryData<TrybeGamesDatabase, int, List<Game>>
-    {
-        {
-            new TrybeGamesDatabase
-            {
-                Games = new List<Game>
-                {
-                    new Game
-                    {
-                        Id = 1,
-                        Name = "Teste",
-                        DeveloperStudio = 1,
-                        Players = new List<int> { 1 }
-                    }
-                },
-                GameStudios = new List<GameStudio>
-                {
-                    new GameStudio
-                    {
-                        Id = 1,
-                        Name = "Teste"
-                    }
-                },
-                Players = new List<Player>
-                {
-                    new Player
-                    {
-                        Id = 1,
-                        Name = "Teste",
-                        GamesOwned = new List<int> { 1 }
-                    }
-                }
-            },
-            1,
-            new List<Game>
-            {
-                new Game
-                {
-                    Id = 1,
-                    Name = "Teste",
-                    DeveloperStudio = 1,
-                    Players = new List<int> { 1 }
-                }
-            }
-        }
-    };
+    // Act
+    var result = database.GetGamesPlayedBy(playerId);
 
-    [Theory(DisplayName = "Deve testar se GetGamesOwnedBy retorna jogos da pessoa jogadora corretamente.")]
-    [MemberData(nameof(DataTestGetGamesOwnedBy))]
-    public void TestGetGamesOwnedBy(TrybeGamesDatabase databaseEntry, int playerIdEntry, List<Game> expected)
-    {
-        throw new NotImplementedException();
+    // Assert
+    result.Should().BeEquivalentTo(expected);
+  }
 
-        // Arrange
-        
-        // Act
-        
-        // Assert
-    }
-
-    public static TheoryData<TrybeGamesDatabase, int, List<Game>> DataTestGetGamesOwnedBy => new TheoryData<TrybeGamesDatabase, int, List<Game>>
+  public static TheoryData<TrybeGamesDatabase, int, List<Game>> DataTestGetGamesPlayedBy => new TheoryData<TrybeGamesDatabase, int, List<Game>>
     {
         {
             new TrybeGamesDatabase
@@ -129,20 +72,87 @@ public class TestTrybeGamesDatabase
         }
     };
 
-    [Theory(DisplayName = "Deve testar se GetGamesDevelopedBy retorna jogos desenvolvidos pelo estúdio corretamente.")]
-    [MemberData(nameof(DataTestGetGamesDevelopedBy))]
-    public void TestGetGamesDevelopedBy(TrybeGamesDatabase databaseEntry, int gameStudioIdEntry, List<Game> expected)
+  [Theory(DisplayName = "Deve testar se GetGamesOwnedBy retorna jogos da pessoa jogadora corretamente.")]
+  [MemberData(nameof(DataTestGetGamesOwnedBy))]
+  public void TestGetGamesOwnedBy(TrybeGamesDatabase databaseEntry, int playerIdEntry, List<Game> expected)
+  {
+
+    // Arrange
+    var database = databaseEntry;
+    var playerId = playerIdEntry;
+
+    // Act
+    var result = database.GetGamesOwnedBy(playerId);
+
+    // Assert
+    result.Should().BeEquivalentTo(expected);
+
+  }
+
+  public static TheoryData<TrybeGamesDatabase, int, List<Game>> DataTestGetGamesOwnedBy => new TheoryData<TrybeGamesDatabase, int, List<Game>>
     {
-        throw new NotImplementedException();
+        {
+            new TrybeGamesDatabase
+            {
+                Games = new List<Game>
+                {
+                    new Game
+                    {
+                        Id = 1,
+                        Name = "Teste",
+                        DeveloperStudio = 1,
+                        Players = new List<int> { 1 }
+                    }
+                },
+                GameStudios = new List<GameStudio>
+                {
+                    new GameStudio
+                    {
+                        Id = 1,
+                        Name = "Teste"
+                    }
+                },
+                Players = new List<Player>
+                {
+                    new Player
+                    {
+                        Id = 1,
+                        Name = "Teste",
+                        GamesOwned = new List<int> { 1 }
+                    }
+                }
+            },
+            1,
+            new List<Game>
+            {
+                new Game
+                {
+                    Id = 1,
+                    Name = "Teste",
+                    DeveloperStudio = 1,
+                    Players = new List<int> { 1 }
+                }
+            }
+        }
+    };
 
-        // Arrange
-        
-        // Act
-        
-        // Assert
-    }
+  [Theory(DisplayName = "Deve testar se GetGamesDevelopedBy retorna jogos desenvolvidos pelo estúdio corretamente.")]
+  [MemberData(nameof(DataTestGetGamesDevelopedBy))]
+  public void TestGetGamesDevelopedBy(TrybeGamesDatabase databaseEntry, int gameStudioIdEntry, List<Game> expected)
+  {
 
-    public static TheoryData<TrybeGamesDatabase, int, List<Game>> DataTestGetGamesDevelopedBy => new TheoryData<TrybeGamesDatabase, int, List<Game>>
+    // Arrange
+    var database = databaseEntry;
+    var gameStudioId = gameStudioIdEntry;
+
+    // Act
+    var result = database.GetGamesDevelopedBy(gameStudioId);
+
+    // Assert
+    result.Should().BeEquivalentTo(expected);
+  }
+
+  public static TheoryData<TrybeGamesDatabase, int, List<Game>> DataTestGetGamesDevelopedBy => new TheoryData<TrybeGamesDatabase, int, List<Game>>
     {
         {
             new TrybeGamesDatabase
