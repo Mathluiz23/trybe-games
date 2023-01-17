@@ -117,9 +117,9 @@
               "resultFile": {
                 "uri": "file:///home/math/Documentos/Voalle/acc-csharp-010-project-trybe-games/src/TrybeGames/Controllers/TrybeGamesController.cs",
                 "region": {
-                  "startLine": 207,
+                  "startLine": 260,
                   "startColumn": 12,
-                  "endLine": 207,
+                  "endLine": 260,
                   "endColumn": 57
                 }
               }
@@ -138,9 +138,9 @@
               "resultFile": {
                 "uri": "file:///home/math/Documentos/Voalle/acc-csharp-010-project-trybe-games/src/TrybeGames/Controllers/TrybeGamesController.cs",
                 "region": {
-                  "startLine": 215,
+                  "startLine": 268,
                   "startColumn": 12,
-                  "endLine": 215,
+                  "endLine": 268,
                   "endColumn": 53
                 }
               }
@@ -159,9 +159,9 @@
               "resultFile": {
                 "uri": "file:///home/math/Documentos/Voalle/acc-csharp-010-project-trybe-games/src/TrybeGames/Controllers/TrybeGamesController.cs",
                 "region": {
-                  "startLine": 223,
+                  "startLine": 276,
                   "startColumn": 12,
-                  "endLine": 223,
+                  "endLine": 276,
                   "endColumn": 67
                 }
               }
