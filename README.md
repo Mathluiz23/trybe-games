@@ -69,10 +69,10 @@ Esses Models, por sua vez, são utilizados na classe `TrybeGamesDatabse` para co
  Agora em `mockConsole` temos um objeto mockado de `IConsole`, e com ele podemos substituir o comportamento de funções e métodos de `IConsole`. Para substituir o comportamento de uma função utilizamos o método `.Setup()` desse novo objeto. 
  
   
-# Este projeto pode ser executado com `dotnet run` na pasta `src/TrybeGames/`,  várias funcionalidades de interação com a pessoa usuária foram  implementadas.
+## Este projeto pode ser executado com `dotnet run` na pasta `src/TrybeGames/`,  várias funcionalidades de interação com a pessoa usuária foram  implementadas.
  
 ## 1 - Adicionar uma nova pessoa jogadora ao banco de dados
-_Implemente o método `AddPlayer()` no arquivo `src/TrybeGames/TrybeGamesController.cs`_
+_Método `AddPlayer()` no arquivo `src/TrybeGames/TrybeGamesController.cs`_
 
 <details>
   <summary>Este método deve utiliza as entradas da pessoa usuária pelo <code>Console</code> para criar uma nova pessoa jogadora e adicionar ao banco de dados</summary><br />
@@ -83,6 +83,7 @@ _Implemente o método `AddPlayer()` no arquivo `src/TrybeGames/TrybeGamesControl
   <summary>Desenvolva o teste para o método <code>AddPlayer</code></summary><br />
 
   Testes para o método `AddPlayer` em `src/TrybeGames.Test/TestTrybeGamesController.cs` no método `TestAddPlayer`. 
+</details>
 </details>
 
 ## 2 - Adicionar novo Estúdio de Jogos ao banco de dados
