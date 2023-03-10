@@ -2,7 +2,7 @@
 
 
 <details>
-  <summary><strong>‼️ Antes de começar a desenvolver</strong></summary><br />
+  <summary><strong>‼️ Executando o projeto localmente</strong></summary><br />
 
   1. Clone o repositório
 
